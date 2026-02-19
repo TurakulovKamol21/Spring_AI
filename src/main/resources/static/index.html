@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring AI Control Deck</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<div class="noise"></div>
+<main class="page">
+    <header class="hero">
+        <p class="kicker">Spring Boot + Spring AI</p>
+        <h1>Control Deck</h1>
+        <p class="subtitle">Chat, RAG, tools, image, moderation, speech, transcription - barchasi bitta panelda.</p>
+        <div id="featureBadges" class="feature-badges"></div>
+    </header>
+
+    <section class="panel-grid">
+        <article class="card">
+            <h2>Chat</h2>
+            <form id="chatForm">
+                <label>Message</label>
+                <textarea id="chatMessage">Spring AI nima va qayerda ishlatiladi?</textarea>
+                <button type="submit">Run Chat</button>
+            </form>
+            <pre id="chatOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Stream Chat</h2>
+            <form id="streamForm">
+                <label>Message</label>
+                <textarea id="streamMessage">Menga 5 qatorli qisqa motivatsion matn yoz.</textarea>
+                <button type="submit">Start Stream</button>
+            </form>
+            <pre id="streamOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Structured Output</h2>
+            <form id="structuredForm">
+                <label>Topic</label>
+                <input id="structuredTopic" value="Spring AI bilan RAG learning path">
+                <button type="submit">Generate Plan</button>
+            </form>
+            <pre id="structuredOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Memory Chat</h2>
+            <form id="memoryForm">
+                <label>Conversation ID</label>
+                <input id="memoryConversationId" value="demo-session">
+                <label>Message</label>
+                <input id="memoryMessage" value="Mening ismim Sardor, eslab qol.">
+                <button type="submit">Send Memory Message</button>
+            </form>
+            <button id="memoryClearBtn" class="ghost">Clear Conversation</button>
+            <pre id="memoryOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Tool Calling</h2>
+            <form id="toolForm">
+                <label>Message</label>
+                <textarea id="toolMessage">UTC vaqtini ayt, keyin 18 km ni milega aylantir.</textarea>
+                <button type="submit">Run Tool Chat</button>
+            </form>
+            <pre id="toolOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Embedding</h2>
+            <form id="embeddingForm">
+                <label>Text</label>
+                <textarea id="embeddingText">Spring AI semantic search demo sentence</textarea>
+                <button type="submit">Create Embedding</button>
+            </form>
+            <pre id="embeddingOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Vector Index</h2>
+            <form id="vectorIndexForm">
+                <label>Doc ID (optional)</label>
+                <input id="vectorDocId" placeholder="doc-1">
+                <label>Text</label>
+                <textarea id="vectorDocText">Spring AI RAG uchun vector store ishlatadi.</textarea>
+                <label>Topic Metadata</label>
+                <input id="vectorDocTopic" value="rag">
+                <button type="submit">Index Document</button>
+            </form>
+            <pre id="vectorIndexOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Vector Search</h2>
+            <form id="vectorSearchForm">
+                <label>Query</label>
+                <input id="vectorQuery" value="RAG nima?">
+                <label>Top K</label>
+                <input id="vectorTopK" type="number" min="1" value="3">
+                <button type="submit">Search</button>
+            </form>
+            <pre id="vectorSearchOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>RAG Ask</h2>
+            <form id="ragForm">
+                <label>Question</label>
+                <textarea id="ragQuestion">Embeddings nima uchun kerak?</textarea>
+                <label>Top K</label>
+                <input id="ragTopK" type="number" min="1" value="3">
+                <button type="submit">Ask RAG</button>
+            </form>
+            <pre id="ragOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Image Generation</h2>
+            <form id="imageForm">
+                <label>Prompt</label>
+                <textarea id="imagePrompt">Minimal geometric spring flowers poster</textarea>
+                <button type="submit">Generate Image</button>
+            </form>
+            <a id="imageLink" class="inline-link" target="_blank" rel="noreferrer"></a>
+            <pre id="imageOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Moderation</h2>
+            <form id="moderationForm">
+                <label>Text</label>
+                <textarea id="moderationText">This is a harmless sample sentence.</textarea>
+                <button type="submit">Run Moderation</button>
+            </form>
+            <pre id="moderationOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Text To Speech</h2>
+            <form id="speechForm">
+                <label>Text</label>
+                <textarea id="speechText">Salom, bu Spring AI full demo panel.</textarea>
+                <label>Voice</label>
+                <input id="speechVoice" value="alloy">
+                <button type="submit">Generate Audio</button>
+            </form>
+            <audio id="speechAudio" controls class="player"></audio>
+            <a id="speechDownload" class="inline-link" download="speech.mp3">Download audio</a>
+            <pre id="speechOutput" class="output"></pre>
+        </article>
+
+        <article class="card">
+            <h2>Transcription</h2>
+            <form id="transcriptionForm">
+                <label>Audio File</label>
+                <input id="transcriptionFile" type="file" accept="audio/*">
+                <label>Language (optional)</label>
+                <input id="transcriptionLanguage" value="en">
+                <button type="submit">Transcribe</button>
+            </form>
+            <pre id="transcriptionOutput" class="output"></pre>
+        </article>
+    </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

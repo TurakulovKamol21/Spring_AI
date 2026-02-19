@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: spring-ai-simple
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      chat:
+        options:
+          model: ${OPENAI_CHAT_MODEL:gpt-4o-mini}
+      embedding:
+        options:
+          model: ${OPENAI_EMBEDDING_MODEL:text-embedding-3-small}
+      image:
+        options:
+          model: ${OPENAI_IMAGE_MODEL:gpt-image-1}
+      moderation:
+        options:
+          model: ${OPENAI_MODERATION_MODEL:omni-moderation-latest}
+      audio:
+        speech:
+          options:
+            model: ${OPENAI_SPEECH_MODEL:gpt-4o-mini-tts}
+        transcription:
+          options:
+            model: ${OPENAI_TRANSCRIPTION_MODEL:gpt-4o-mini-transcribe}
